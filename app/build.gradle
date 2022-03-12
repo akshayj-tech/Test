@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'maven-publish'
 }
 
 android {
@@ -46,41 +45,13 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.aar"])
-    implementation project(':community_checkbox')
+    implementation project(':mylibrary')
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation files('C:\\Users\\aksha\\OneDrive\\Documents\\backup aar orignal\\all other aar\\android-jsc-r245459.aar')
+    implementation files('C:\\Users\\aksha\\OneDrive\\Documents\\backup aar orignal\\all other aar\\react-native-community_checkbox-release.aar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-}
-
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId = 'com.github.akshayj-tech'
-                artifactId = 'Test'
-                version = '0.14'
-//                artifact "$buildDir/outputs/aar/community_checkbox-debug.aar"
-                //aar artifact you want to publish
-
-                pom.withXml {
-                    def dependenciesNode = asNode().appendNode('dependencies')
-
-                    configurations.implementation.allDependencies.each {
-
-                        if (it.name != 'unspecified') {
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
