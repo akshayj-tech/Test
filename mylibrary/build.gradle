@@ -42,7 +42,7 @@ afterEvaluate {
                 groupId = 'com.github.akshayj-tech'
                 artifactId = 'Test'
                 version = '0.14'
-                artifact "$buildDir/outputs/aar/mylibrary-debug.aar"
+                artifact "$buildDir/outputs/aar/mylibrary-release.aar"
                 //aar artifact you want to publish
 
                 pom.withXml {
