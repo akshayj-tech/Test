@@ -41,7 +41,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.akshayj-tech'
                 artifactId = 'Test'
-                version = '0.16'
+                version = '0.17'
                 artifact "$buildDir/outputs/aar/mylibrary-release.aar"
                 //aar artifact you want to publish
 
